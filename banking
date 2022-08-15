@@ -1,0 +1,28 @@
+// CREATE DATABSE BANKING 
+
+CREATE DATABASE Banking;
+
+// CRIANDO TABELAS CLIENTES 
+
+CREATE TABLE Cliente
+(
+    id_cliente int PRIMARY KEY IDENTITY(1,1),
+    nome_completo VARCHAR(100) NOT NULL,
+    primeiro_nome VARCHAR(30) NOT NULL,
+    sobrenome VARCHAR(70) NOT NULL,
+    data_nascimento VARCHAR(10) NOT NULL
+    cpf int NOT NULL
+);
+
+// CRIANDO TABELAS CONTAS
+
+CREATE TABLE conta
+(
+    id_conta int PRIMARY KEY IDENTITY(1,1),
+    id_cliente int, --fk cliente
+    id_categoria int, --fk conta_categoria
+    valor DECIMAL NOT NULL,
+
+    CONSTRAINT fk_cliente_conta FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
+    CONSTRAINT fk_conta_categoria_conta FOREIGN KEY(id_categoria) REFERENCES conta_categoria(id_categoria)
+);
