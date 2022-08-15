@@ -9,7 +9,7 @@ CREATE TABLE Cliente
     id_cliente int PRIMARY KEY IDENTITY(1,1),
     nome_completo VARCHAR(100) NOT NULL,
     primeiro_nome VARCHAR(30) NOT NULL,
-    sobrenome VARCHAR(70) NOT NULL,
+    sobrenome VARCHAR(50) NOT NULL,
     data_nascimento VARCHAR(10) NOT NULL
     cpf int NOT NULL
 );
@@ -25,4 +25,12 @@ CREATE TABLE conta
 
     CONSTRAINT fk_cliente_conta FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
     CONSTRAINT fk_conta_categoria_conta FOREIGN KEY(id_categoria) REFERENCES conta_categoria(id_categoria)
+);
+
+// CRIANDO TABELAS CATEGORIAS
+
+CREATE TABLE conta_categoria
+(
+    id_categoria int PRIMARY KEY IDENTITY(1,1),
+    nome_categoria VARCHAR(30) NOT NULL
 );
